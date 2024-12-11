@@ -10,7 +10,7 @@ This project combines **YOLO-based object detection** and **OCR (Optical Charact
 
 - **Train YOLO on Real Images**: We trained the YOLO model to detect packed food items in real-world images.
 - **Count Food Packages**: Accurately count packed food items in a given environment.
-- **OCR Integration for Data Extraction**: Extract critical information like **expiry dates, brand names**, and **batch numbers** from packaging labels.
+- **OCR Integration for Data Extraction**: Extract critical information like **expiry dates** from packaging labels.
 - **Automated Inventory Management**: Provide actionable insights for better inventory tracking and shelf-life management.
 
 ---
