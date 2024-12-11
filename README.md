@@ -26,4 +26,16 @@ This project combines **YOLO-based object detection** and **OCR (Optical Charact
 
 ## 📁 **Project Structure**
 ```
+app/
+├── model/
+│   ├── New2Freshness50...  # Trained VGG16 model file for freshness classification
+├── templates/
+│   ├── index.html          # UI template for interacting with the application
+├── __init__.py             # Flask application initialization
+├── routes.py               # Defines API routes and loading Model performing OCr
+.env                        # Environment variables
+.gitignore                  # Files to be ignored by Git
+README.md                   
+requirements.txt            # Python dependencies
+wsgi.py                     # WSGI entry point for deployment
 ```
