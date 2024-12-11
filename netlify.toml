@@ -1,0 +1,10 @@
+[build]
+  # Define the build command and publish directory
+  command = "pip install -r requirements.txt && python wsgi.py"
+  publish = "public"
+
+[env]
+  TESSERACT_PATH = "/usr/bin/tesseract"
+
+[[plugins]]
+  package = "@netlify/plugin-pip"

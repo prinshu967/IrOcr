@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OCR with YOLO</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #1a1a50;
+            color: #333;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        h1 {
+        
+            color: rgb(59, 206, 19);
+            padding: 1rem;
+            margin: 0;
+            width: 100%;
+            text-align: center;
+            font-family: 'Courier New';
+            font-size: 60px;
+        }
+
+        form {
+            margin: 2rem 0;
+            padding: 1rem;
+            background: #fff;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        form input[type="file"] {
+            display: block;
+            margin: 1rem 0;
+        }
+
+        form button {
+            padding: 0.5rem 1rem;
+            background-color: #4caf50;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 1rem;
+        }
+
+        form button:hover {
+            background-color: #45a049;
+        }
+
+        h2 {
+            margin-top: 2rem;
+            color: #32f003;
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        ul li {
+            background: #fff;
+            margin: 0.5rem 0;
+            padding: 0.75rem;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        img {
+            margin-top: 2rem;
+            max-width: 100%;
+            height: auto;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 1rem;
+            width: 600px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Object Detection with OCR</h1>
+    <div class="container">
+        
+        <form action="{{ url_for('ir_ocr.home') }}" method="post" enctype="multipart/form-data">
+
+            <input type="file" name="file" required>
+            <button type="submit">Upload and Detect</button>
+        </form>
+
+        {% if image %}
+            <h2>Detected Objects</h2>
+            <ul>
+                {% for obj, count in detected_objects.items() %}
+                    <li><strong>{{ obj }}</strong>: {{ count }}</li>
+                {% endfor %}
+            </ul>
+
+            <h2>OCR Results</h2>
+            <ul>
+                {% for result in ocr_results %}
+                    <li>
+                        <strong>{{ result.class }}</strong>: <br>
+>
+                        Expiry Date :  {{ result.expiry_date or "N/A" }}<br>
+                        Shelf Life  :   {{ result.shelf_life or "N/A" }}
+                    </li>
+                {% endfor %}
+            </ul>
+
+            <h2>Processed Image</h2>
+            <img src="data:image/jpeg;base64,{{ image }}" alt="Processed Image">
+        {% endif %}
+    </div>
+</body>
+</html>

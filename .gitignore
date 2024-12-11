@@ -1,0 +1,32 @@
+# Byte-compiled files
+__pycache__/
+*.py[cod]
+
+
+.env
+
+
+venv/
+venv12/
+
+*.log
+
+static/uploads/
+
+# Backup files
+*.bak
+*.swp
+
+# IDE files
+.vscode/
+*.code-workspace
+
+# System files
+.DS_Store
+Thumbs.db
+
+# Python egg files
+*.egg-info/
+*.eggs/
+
+python-3.8.10.exe

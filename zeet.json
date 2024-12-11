@@ -1,0 +1,9 @@
+{
+  "name": "ocr-app",
+  "type": "python",
+  "runtime": "python3.12",
+  "entrypoint": "wsgi.py",
+  "env": {
+    "TESSERACT_PATH": "/usr/bin/tesseract"
+  }
+}
